@@ -1,5 +1,5 @@
-/* Public event details. The date is intentionally blank until it is confirmed. */
+/* Public event details for the wedding invitation. */
 window.WEDDING_CONFIG = {
-  // Optional, use YYYY-MM-DD when confirmed. Example: "2027-01-01"
-  eventDate: ""
+  // Format: YYYY-MM-DD. Wedding date: 1 November 2026.
+  eventDate: "2026-11-01"
 };

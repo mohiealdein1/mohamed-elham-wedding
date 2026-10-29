@@ -4,15 +4,27 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#d9ceb9">
+  <meta name="color-scheme" content="light">
   <meta name="description" content="Elham and Mohamed's wedding invitation at Premiere Hall, Festival Land, New Assiut.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Elham & Mohamed | Wedding Invitation">
-  <meta property="og:description" content="Please join us as we celebrate our wedding at Premiere Hall, Festival Land, New Assiut.">
+  <meta property="og:description" content="A wedding invitation for Elham Abdel Nasser and Mohamed Mohie El Din at Premiere Hall, Festival Land, New Assiut.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <title>Elham & Mohamed | Wedding Invitation</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    (() => {
+      const key = "elham-mohamed-invitation-language";
+      let saved = "";
+      try { saved = localStorage.getItem(key) || ""; } catch (_) {}
+      const locale = ((navigator.languages && navigator.languages[0]) || navigator.language || "en").toLowerCase();
+      const language = saved === "ar" || saved === "en" ? saved : (locale.startsWith("ar") ? "ar" : "en");
+      document.documentElement.lang = language;
+      document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+    })();
+  </script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -21,7 +33,7 @@
     <a class="monogram" href="#top" aria-label="Elham and Mohamed">
       <span class="monogram-letter">E</span><span class="monogram-rule"></span><span class="monogram-letter">M</span>
     </a>
-    <span class="header-note" data-i18n="headerNote">A wedding invitation</span>
+    <span class="header-note" data-i18n="headerNote">Wedding invitation</span>
     <button class="language-toggle" id="languageToggle" type="button" aria-label="Change language to Arabic">
       <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 12h17M12 3c2.3 2.4 3.5 5.5 3.5 9s-1.2 6.6-3.5 9c-2.3-2.4-3.5-5.5-3.5-9S9.7 5.4 12 3Z"/></svg>
       <span id="languageToggleLabel">العربية</span>
@@ -35,9 +47,8 @@
       <span class="corner corner-bl" aria-hidden="true"></span>
       <span class="corner corner-br" aria-hidden="true"></span>
 
-      <section class="cover" aria-label="Wedding invitation">
+      <section class="cover" data-i18n-aria-label="invitationAria" aria-label="Wedding invitation">
         <div class="botanical-side" aria-hidden="true">
-          <span class="botanical-label" data-i18n="artLabel">CUT-PAPER BOTANICALS</span>
           <svg class="paper-botanical" viewBox="0 0 440 600" xmlns="http://www.w3.org/2000/svg" role="presentation">
             <defs>
               <filter id="paperLift" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="2" dy="4" stdDeviation="2.4" flood-color="#655947" flood-opacity=".15"/></filter>
@@ -82,19 +93,17 @@
             </g>
             <path d="M52 575C118 592 191 588 249 557" fill="none" stroke="#b7a27e" stroke-width="1.1" stroke-dasharray="2 7"/>
           </svg>
-          <span class="botanical-caption" data-i18n="artCaption">Shapes cut by hand, layered like paper.</span>
         </div>
 
         <div class="cover-copy">
           <div class="invitation-mark"><span class="mark-line"></span><span class="mark-leaf" aria-hidden="true">❧</span><span class="mark-line"></span></div>
-          <p class="eyebrow" data-i18n="eyebrow">WITH OUR FAMILIES</p>
-          <p class="request-line" data-i18n="requestLine">Please join us as we celebrate our wedding.</p>
+          <p class="eyebrow" data-i18n="eyebrow">TO OUR FAMILY AND FRIENDS</p>
+          <p class="request-line" data-i18n="requestLine">We’d be delighted to celebrate our wedding with you.</p>
           <h1 id="coupleNames" class="couple-names">
             <span class="name name-first" data-name="elham">Elham Abdel Nasser</span>
             <span class="joining-word" aria-hidden="true">&amp;</span>
             <span class="name name-second" data-name="mohamed">Mohamed Mohie El Din</span>
           </h1>
-          <p class="cover-message" data-i18n="coverMessage">It would mean a great deal to have you with us.</p>
           <div class="family-names">
             <span data-i18n="familyOne">Al Hababoua Family</span>
             <span class="family-dot" aria-hidden="true">✦</span>
@@ -105,60 +114,55 @@
 
       <section class="verse-section" aria-labelledby="verseHeading">
         <div class="ornament-row" aria-hidden="true"><span></span><svg viewBox="0 0 34 20"><path d="M17 17C11 10 5 10 3 4C9 4 14 7 17 12C20 7 25 4 31 4C29 10 23 10 17 17Z"/><path d="M17 12V3"/></svg><span></span></div>
-        <p class="verse-heading" id="verseHeading" data-i18n="verseHeading">A verse on love and mercy</p>
+        <p class="verse-heading" id="verseHeading" data-i18n="verseHeading">From the Quran</p>
         <blockquote class="quran-verse" lang="ar" dir="rtl">﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ﴾</blockquote>
         <p class="verse-reference" data-i18n="verseReference">Surah Ar-Rum · 30:21</p>
         <div class="verse-bottom-ornament" aria-hidden="true">✦</div>
       </section>
 
-      <section class="event-section" id="details" aria-label="Wedding details">
+      <section class="event-section" id="details" data-i18n-aria-label="detailsAria" aria-label="Wedding details">
         <div class="section-heading">
           <span class="section-rule"></span>
-          <p data-i18n="detailsEyebrow">THE DETAILS</p>
+          <p data-i18n="detailsEyebrow">Wedding details</p>
           <span class="section-rule"></span>
         </div>
         <div class="event-details">
           <div class="event-detail time-detail">
-            <span class="detail-number" aria-hidden="true">I</span>
             <svg class="detail-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 9v7l5 3"/></svg>
-            <span class="detail-label" data-i18n="timeLabel">TIME</span>
+            <span class="detail-label" data-i18n="timeLabel">Time</span>
             <strong data-i18n="timeValue">8:00 PM</strong>
           </div>
           <div class="event-detail hall-detail">
-            <span class="detail-number" aria-hidden="true">II</span>
             <svg class="detail-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 27V13L16 5l11 8v14M11 27V17h10v10M3 27h26"/><path d="M14 10h4"/></svg>
-            <span class="detail-label" data-i18n="hallLabel">THE HALL</span>
+            <span class="detail-label" data-i18n="hallLabel">Hall</span>
             <strong data-i18n="hallValue">Premiere Hall</strong>
           </div>
           <div class="event-detail location-detail">
-            <span class="detail-number" aria-hidden="true">III</span>
             <svg class="detail-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M26 13c0 7-10 16-10 16S6 20 6 13a10 10 0 1 1 20 0Z"/><circle cx="16" cy="13" r="3.2"/></svg>
-            <span class="detail-label" data-i18n="locationLabel">LOCATION</span>
+            <span class="detail-label" data-i18n="locationLabel">Location</span>
             <strong data-i18n="locationValue">Festival Land, New Assiut</strong>
           </div>
           <div class="event-detail date-detail" id="dateDetail" hidden>
-            <span class="detail-number" aria-hidden="true">IV</span>
             <svg class="detail-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="8" width="22" height="19" rx="1"/><path d="M10 4v7M22 4v7M5 14h22"/></svg>
             <span class="detail-label" data-i18n="dateLabel">DATE</span>
             <strong id="dateValue"></strong>
           </div>
         </div>
         <div class="map-action-wrap">
-          <p class="venue-caption" data-i18n="venueCaption">We’ll be waiting for you at Premiere Hall.</p>
+          <p class="venue-caption" data-i18n="venueCaption">We look forward to seeing you there.</p>
           <a class="map-button" href="https://maps.app.goo.gl/SmfToVbjLVmfsbJP9" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.2"/></svg>
-            <span data-i18n="mapCta">Get directions</span><span class="map-arrow" aria-hidden="true">↗</span>
+            <span data-i18n="mapCta">Open in Maps</span><span class="map-arrow" aria-hidden="true">↗</span>
           </a>
         </div>
       </section>
 
       <footer class="invitation-footer">
         <svg class="footer-sprig" viewBox="0 0 120 38" aria-hidden="true"><path d="M4 34C34 32 61 22 89 4M33 28C20 16 13 14 5 16C11 26 20 29 33 28ZM52 22C51 10 57 4 68 2C68 12 62 19 52 22ZM73 14C79 21 91 23 100 17C92 9 82 8 73 14ZM90 7L112 2" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <p data-i18n="footerLine">We look forward to celebrating with you.</p>
+        <p data-i18n="footerLine">With love,</p>
         <span class="footer-names" data-i18n="footerNames">Elham &amp; Mohamed</span>
       </footer>
     </article>
-    <p class="outside-note" data-i18n="outsideNote">A little paper invitation, made for a very big day.</p>
   </main>
 
   <script src="config.js"></script>

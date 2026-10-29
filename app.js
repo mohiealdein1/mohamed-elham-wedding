@@ -6,45 +6,42 @@
   const copy = {
     en: {
       pageTitle: "Elham & Mohamed | Wedding Invitation",
-      description: "Please join Elham and Mohamed as they celebrate their wedding at Premiere Hall, Festival Land, New Assiut.",
+      description: "A wedding invitation for Elham Abdel Nasser and Mohamed Mohie El Din at Premiere Hall, Festival Land, New Assiut.",
       skip: "Skip to invitation",
-      headerNote: "A wedding invitation",
-      artLabel: "CUT-PAPER BOTANICALS",
-      artCaption: "Shapes cut by hand, layered like paper.",
-      eyebrow: "WITH OUR FAMILIES",
-      requestLine: "Please join us as we celebrate our wedding.",
-      coverMessage: "It would mean a great deal to have you with us.",
+      headerNote: "Wedding invitation",
+      invitationAria: "Wedding invitation",
+      detailsAria: "Wedding details",
+      eyebrow: "TO OUR FAMILY AND FRIENDS",
+      requestLine: "We’d be delighted to celebrate our wedding with you.",
       familyOne: "Al Hababoua Family",
       familyTwo: "Al Ghazawy Family",
-      verseHeading: "A verse on love and mercy",
+      verseHeading: "From the Quran",
       verseReference: "Surah Ar-Rum · 30:21",
-      detailsEyebrow: "THE DETAILS",
-      timeLabel: "TIME",
+      detailsEyebrow: "Wedding details",
+      timeLabel: "Time",
       timeValue: "8:00 PM",
-      hallLabel: "THE HALL",
+      hallLabel: "Hall",
       hallValue: "Premiere Hall",
-      locationLabel: "LOCATION",
+      locationLabel: "Location",
       locationValue: "Festival Land, New Assiut",
-      dateLabel: "DATE",
-      venueCaption: "We’ll be waiting for you at Premiere Hall.",
-      mapCta: "Get directions",
-      footerLine: "We look forward to celebrating with you.",
-      footerNames: "Elham & Mohamed",
-      outsideNote: "A little paper invitation, made for a very big day."
+      dateLabel: "Date",
+      venueCaption: "We look forward to seeing you there.",
+      mapCta: "Open in Maps",
+      footerLine: "With love,",
+      footerNames: "Elham & Mohamed"
     },
     ar: {
-      pageTitle: "إلهام ومحمد | دعوة الزفاف",
-      description: "دعوة زفاف إلهام ومحمد في قاعة بريمير، فيستيفال لاند، أسيوط الجديدة.",
+      pageTitle: "إلهام ومحمد | دعوة زفاف",
+      description: "دعوة زفاف إلهام عبد الناصر ومحمد محي الدين في قاعة بريمير، فيستيفال لاند، أسيوط الجديدة.",
       skip: "انتقل إلى الدعوة",
       headerNote: "دعوة زفاف",
-      artLabel: "زخارف نباتية من الورق",
-      artCaption: "أشكال مقصوصة ومتداخلة كطبقات الورق.",
-      eyebrow: "بصحبة أهلنا",
-      requestLine: "يسعدنا أن تشاركونا فرحتنا بزفافنا.",
-      coverMessage: "وجودكم بيننا يضيف لفرحتنا الكثير.",
+      invitationAria: "دعوة الزفاف",
+      detailsAria: "تفاصيل الفرح",
+      eyebrow: "إلى أهلنا وأحبابنا",
+      requestLine: "يسعدنا أن تشاركونا فرحة زفافنا.",
       familyOne: "آل هابابوا",
       familyTwo: "آل غزاوي",
-      verseHeading: "آية في المودة والرحمة",
+      verseHeading: "من القرآن الكريم",
       verseReference: "سورة الروم · الآية ٢١",
       detailsEyebrow: "تفاصيل الفرح",
       timeLabel: "الموعد",
@@ -54,17 +51,17 @@
       locationLabel: "المكان",
       locationValue: "فيستيفال لاند، أسيوط الجديدة",
       dateLabel: "التاريخ",
-      venueCaption: "نستناكم في قاعة بريمير، والفرحة بوجودكم تكمل.",
-      mapCta: "افتح الموقع على خرائط جوجل",
-      footerLine: "فرحتنا تكمل بوجودكم معانا.",
-      footerNames: "إلهام ومحمد",
-      outsideNote: "دعوة بسيطة على الورق، لفرحة كبيرة."
+      venueCaption: "ننتظركم في قاعة بريمير.",
+      mapCta: "افتح الموقع على الخريطة",
+      footerLine: "بكل حب،",
+      footerNames: "إلهام ومحمد"
     }
   };
 
+  // Keep the Arabic spelling exactly aligned with the supplied event details.
   const names = {
     en: { elham: "Elham Abdel Nasser", mohamed: "Mohamed Mohie El Din" },
-    ar: { elham: "إلهام عبد الناصر", mohamed: "محمد محيي الدين" }
+    ar: { elham: "إلهام عبد الناصر", mohamed: "محمد محي الدين" }
   };
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
@@ -103,6 +100,7 @@
     document.documentElement.dir = currentLanguage === "ar" ? "rtl" : "ltr";
     document.body.classList.toggle("lang-ar", currentLanguage === "ar");
     document.title = text.pageTitle;
+
     const description = $("meta[name='description']");
     if (description) description.content = text.description;
     const ogTitle = $("meta[property='og:title']");
@@ -113,6 +111,10 @@
     $$('[data-i18n]').forEach((element) => {
       const key = element.dataset.i18n;
       if (Object.prototype.hasOwnProperty.call(text, key)) element.textContent = text[key];
+    });
+    $$('[data-i18n-aria-label]').forEach((element) => {
+      const key = element.dataset.i18nAriaLabel;
+      if (Object.prototype.hasOwnProperty.call(text, key)) element.setAttribute("aria-label", text[key]);
     });
     $$('[data-name]').forEach((element) => {
       const key = element.dataset.name;
